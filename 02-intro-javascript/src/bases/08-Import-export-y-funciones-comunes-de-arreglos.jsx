@@ -1,14 +1,14 @@
 //Import, export y funciones comunes de arreglos
 
-import { heroes } from "./data/heroes";
+import Heroes from "../data/heroes";
 
-console.log(heroes);
+// console.log(Heroes);
 
-const getHeroeById = (id) => heroes.find((heroe) => heroe.id === id);
+export const getHeroeById = (id) => Heroes.find((heroe) => heroe.id === id);
 
-console.log(getHeroeById(2));
+// console.log(getHeroeById(2));
 
 const getHeroesByOwner = (owner) =>
-  heroes.filter((heroe) => heroe.owner == owner);
+  Heroes.filter((heroe) => heroe.owner == owner);
 
-console.log(getHeroesByOwner("Marvel"));
+// console.log(getHeroesByOwner("Marvel"));
