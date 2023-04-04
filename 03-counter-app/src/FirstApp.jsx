@@ -13,7 +13,8 @@ const nuevoObj = {
 
 const nuevaFunc = (num) => num * 12;
 
-export const FirstApp = () => {
+export const FirstApp = ({ titulo, subtitulo, numero }) => {
+  // console.log(props)
   return (
     <>
       <h1>{nuevoMensaje}</h1>
@@ -28,6 +29,9 @@ export const FirstApp = () => {
       {/* sin embargo, es posible mostrar un objeto de la siguiente forma */}
       <code>{JSON.stringify(nuevoObj)}</code>
       <h1>{nuevaFunc(500)}</h1>
+      <h1>{titulo}</h1>
+      <h1>{subtitulo}</h1>
+      <h1>{numero + 5}</h1>
     </>
   );
 };
