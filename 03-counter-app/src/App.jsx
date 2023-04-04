@@ -13,8 +13,8 @@ const App = () => {
   return (
     <>
       <h1>Hola Mundo con React</h1>
-      <FirstApp />
       <p>Soy un subtitulo</p>
+      <FirstApp />
     </>
   );
 };
