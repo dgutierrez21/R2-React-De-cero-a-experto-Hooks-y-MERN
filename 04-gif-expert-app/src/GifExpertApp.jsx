@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AniadirCategoria } from "./components/AniadirCategoria";
 
 export const GifExpertApp = () => {
   const [categorias, setCategorias] = useState(["One Punch", "Dragon Ball"]);
@@ -10,7 +11,9 @@ export const GifExpertApp = () => {
     <>
       <h1>GifExpertApp</h1>
 
-      <button onClick={onAniadirCategoria}>Añadir nueva Categoria</button>
+      <AniadirCategoria />
+
+      <button onClick={onAniadirCategoria}>Agregar</button>
 
       <ol>
         {categorias.map((categoria) => (
