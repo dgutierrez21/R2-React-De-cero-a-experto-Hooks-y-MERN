@@ -15,7 +15,7 @@ const nuevoObj = {
 
 const nuevaFunc = (num) => num * 12;
 
-export const FirstApp = ({ titulo, subtitulo, numero, titulo2 }) => {
+export const FirstApp = ({ titulo, subtitulo, numero, titulo2 = 100 }) => {
   // console.log(props)
   return (
     <>
@@ -34,11 +34,18 @@ export const FirstApp = ({ titulo, subtitulo, numero, titulo2 }) => {
       <h1>{titulo}</h1>
       <h1>{subtitulo}</h1>
       <h1>{numero + 5}</h1>
+      <h1>{titulo2}</h1>
     </>
   );
 };
 
 FirstApp.propTypes = {
   titulo: PropTypes.string,
+  numero: PropTypes.number,
   titulo2: PropTypes.number.isRequired,
+};
+
+FirstApp.defaultProps = {
+  titulo: "No hay titulo",
+  numero: "No hay número",
 };

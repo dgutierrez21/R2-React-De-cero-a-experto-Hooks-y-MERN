@@ -18,12 +18,7 @@ const App = () => {
     <>
       <h1>Hola Mundo con React</h1>
       <p>Soy un subtitulo</p>
-      <FirstApp
-        titulo="Hola Mundo | props"
-        subtitulo={sub}
-        numero={num}
-        titulo2={123}
-      />
+      <FirstApp subtitulo={sub} numero={num} titulo2={123} />
     </>
   );
 };
