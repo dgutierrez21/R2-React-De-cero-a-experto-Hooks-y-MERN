@@ -18,7 +18,9 @@ button {
   color: white;
   border: none;
 }
-
+.btnContainer button:not(:first-child) {
+  margin-left: 20px;
+}
 button:hover {
   background-color: rgba(0, 145, 255, 0.744);
 }
