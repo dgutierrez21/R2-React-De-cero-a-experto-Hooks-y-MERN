@@ -1,19 +1,29 @@
 import PropTypes from "prop-types";
 
-export const CounterApp = ({ value }) => {
-  function handleAniadir(evento) {
-    console.log(evento);
+import { useState } from "react";
 
-    console.log("+1");
+export const CounterApp = ({ value }) => {
+  //  retorna un array con dos elementos: la variable de estado y una función para actualizarla.
+  const [counter, setCounter] = useState(value);
+
+  function handleAniadir(evento) {
+    // console.log(evento);
 
     // ❌❌❌
-    value = 1000;
-    console.log(value);
+    // counter++
+
+    // ✅✅✅
+    // forma 1
+    // setCounter(counter + 1);
+
+    //forma 2
+    //     valor actual
+    setCounter((c) => c + 1);
   }
   return (
     <>
       <h1>CounterApp</h1>
-      <h2>{value}</h2>
+      <h2>{counter}</h2>
       <button onClick={handleAniadir}>+1</button>
     </>
   );
