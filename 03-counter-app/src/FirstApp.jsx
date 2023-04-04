@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const nuevoMensaje = "Este es un nuevo mensaje";
 
 const nuevoNumero = 543;
@@ -13,7 +15,7 @@ const nuevoObj = {
 
 const nuevaFunc = (num) => num * 12;
 
-export const FirstApp = ({ titulo, subtitulo, numero }) => {
+export const FirstApp = ({ titulo, subtitulo, numero, titulo2 }) => {
   // console.log(props)
   return (
     <>
@@ -34,4 +36,9 @@ export const FirstApp = ({ titulo, subtitulo, numero }) => {
       <h1>{numero + 5}</h1>
     </>
   );
+};
+
+FirstApp.propTypes = {
+  titulo: PropTypes.string,
+  titulo2: PropTypes.number.isRequired,
 };
