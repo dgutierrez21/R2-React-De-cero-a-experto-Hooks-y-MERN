@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AniadirCategoria = ({ onAniadirCategoria }) => {
+export const AniadirCategoria = ({ onNuevaCategoria }) => {
   const [valorInput, setValorInput] = useState("");
 
   const onInputChange = (evento) => {
@@ -13,9 +13,12 @@ export const AniadirCategoria = ({ onAniadirCategoria }) => {
   const onFormSubmit = (evento) => {
     evento.preventDefault();
 
-    if (valorInput.trim().length <= 1) return;
+    const nuevoValorInput = valorInput.trim();
 
-    onAniadirCategoria((categorias) => [valorInput, ...categorias]);
+    if (nuevoValorInput.length <= 1) return;
+
+    // onAniadirCategoria((categorias) => [valorInput, ...categorias]);
+    onNuevaCategoria(nuevoValorInput);
 
     setValorInput("");
   };
