@@ -11,9 +11,7 @@ export const GifExpertApp = () => {
     <>
       <h1>GifExpertApp</h1>
 
-      <AniadirCategoria />
-
-      <button onClick={onAniadirCategoria}>Agregar</button>
+      <AniadirCategoria onAniadirCategoria={setCategorias} />
 
       <ol>
         {categorias.map((categoria) => (

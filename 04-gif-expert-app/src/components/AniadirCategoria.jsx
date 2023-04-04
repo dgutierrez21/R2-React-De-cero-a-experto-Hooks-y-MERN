@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export const AniadirCategoria = () => {
-  const [valorInput, setValorInput] = useState("One Punch");
+export const AniadirCategoria = ({ onAniadirCategoria }) => {
+  const [valorInput, setValorInput] = useState("");
 
   const onInputChange = (evento) => {
     console.log(evento);
@@ -13,7 +13,11 @@ export const AniadirCategoria = () => {
   const onFormSubmit = (evento) => {
     evento.preventDefault();
 
-    alert(valorInput);
+    if (valorInput.trim().length <= 1) return;
+
+    onAniadirCategoria((categorias) => [valorInput, ...categorias]);
+
+    setValorInput("");
   };
 
   return (
