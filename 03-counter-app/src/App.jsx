@@ -1,4 +1,4 @@
-import { FirstApp } from "./FirstApp";
+import { CounterApp } from "./CounterApp";
 
 // const App2 = () => {
 //   return (
@@ -18,7 +18,7 @@ const App = () => {
     <>
       <h1>Hola Mundo con React</h1>
       <p>Soy un subtitulo</p>
-      <FirstApp subtitulo={sub} numero={num} titulo2={123} />
+      <CounterApp value={18} />
     </>
   );
 };
