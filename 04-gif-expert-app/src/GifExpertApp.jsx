@@ -3,7 +3,7 @@ import { AniadirCategoria } from "./components/AniadirCategoria";
 import { GifGrid } from "./components/GifGrid";
 
 export const GifExpertApp = () => {
-  const [categorias, setCategorias] = useState(["One Punch", "Dragon Ball"]);
+  const [categorias, setCategorias] = useState(["Dragon Ball"]);
 
   const onAniadirCategoria = (onNuevaCategoria) => {
     console.log(onNuevaCategoria);
