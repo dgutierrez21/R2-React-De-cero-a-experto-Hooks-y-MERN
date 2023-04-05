@@ -7,6 +7,14 @@ export const GifExpertApp = () => {
   const onAniadirCategoria = (onNuevaCategoria) => {
     console.log(onNuevaCategoria);
 
+    const categoriasLowerCase = categorias.map((categoria) =>
+      categoria.toLowerCase()
+    );
+
+    const onNuevaCategoriaLowerCase = onNuevaCategoria.toLowerCase();
+
+    if (categoriasLowerCase.includes(onNuevaCategoriaLowerCase)) return;
+
     setCategorias([onNuevaCategoria, ...categorias]);
     //   const onAniadirCategoria = () => setCategorias((cat) => ["Valorant", ...cat]);
   };
@@ -21,6 +29,9 @@ export const GifExpertApp = () => {
       />
 
       <ol>
+        {/* No se recomienda utilizar el índice del map como key de un elemento en
+        React porque puede generar problemas de rendimiento y de representación
+        visual. */}
         {categorias.map((categoria) => (
           <li key={categoria}>{categoria}</li>
         ))}
