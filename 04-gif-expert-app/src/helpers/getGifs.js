@@ -11,7 +11,7 @@ export const getGifs = async (categoria) => {
 
   const gifs = data.map((img) => ({
     id: img.id,
-    titulo: img.title,
+    titulo: img.title.trim().length == 0 ? categoria : img.title,
     url: img.images.downsized_medium.url,
   }));
 
