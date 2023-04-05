@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AniadirCategoria } from "./components/AniadirCategoria";
-import { GifGrid } from "./components/GifGrid";
+import { AniadirCategoria, GifGrid } from "./components";
+
 
 export const GifExpertApp = () => {
   const [categorias, setCategorias] = useState(["Dragon Ball"]);
