@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AniadirCategoria } from "./components/AniadirCategoria";
+import { GifGrid } from "./components/GifGrid";
 
 export const GifExpertApp = () => {
   const [categorias, setCategorias] = useState(["One Punch", "Dragon Ball"]);
@@ -28,14 +29,12 @@ export const GifExpertApp = () => {
         onNuevaCategoria={(valor) => onAniadirCategoria(valor)}
       />
 
-      <ol>
-        {/* No se recomienda utilizar el índice del map como key de un elemento en
+      {/* No se recomienda utilizar el índice del map como key de un elemento en
         React porque puede generar problemas de rendimiento y de representación
         visual. */}
-        {categorias.map((categoria) => (
-          <li key={categoria}>{categoria}</li>
-        ))}
-      </ol>
+      {categorias.map((categoria) => (
+        <GifGrid categoria={categoria} key={categoria} />
+      ))}
     </>
   );
 };
