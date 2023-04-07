@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useCounter } from "../hooks/useCounter";
-import { useFetch } from "../hooks/useFetch";
+import { useCounter, useFetch } from "../hooks";
+import { Isloading, Quote } from "./components";
 
 export const MultipleCustomHooks = () => {
   const { counter, incrementar, reiniciar } = useCounter(1);
@@ -13,7 +13,7 @@ export const MultipleCustomHooks = () => {
 
   // esto asegura que data no sea nula, indefinida o vacía antes de acceder al primer elemento del arreglo y evita que la app se rompa debido a esto.
 
-  const { author, quote } = !!data && data[0];
+  const dataQuote = !!data && data[0];
 
   useEffect(() => {
     reiniciar();
@@ -27,20 +27,7 @@ export const MultipleCustomHooks = () => {
 
       <hr />
 
-      <div
-        className={`alert alert-info text-center ${
-          isLoading ? "d-block" : "d-none"
-        }`}
-      >
-        Loading...
-      </div>
-
-      <blockquote
-        className={`blockquote text-end ${isLoading ? "d-none" : "d-block"}`}
-      >
-        <p className="mb-1">{quote}</p>
-        <footer className="blockquote-footer mt-1">{author}</footer>
-      </blockquote>
+      {isLoading ? <Isloading /> : <Quote {...dataQuote} />}
 
       <button
         className={`${isLoading ? "d-none" : "d-block"}`}
