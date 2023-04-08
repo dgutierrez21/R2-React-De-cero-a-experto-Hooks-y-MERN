@@ -1,5 +1,7 @@
 import { useReducer } from "react";
 import { todoReducer } from "./todoReducer";
+import { TodoList } from "./components/TodoList";
+import { TodoAdd } from "./components/todoAdd";
 
 const estadoInicial = [
   {
@@ -15,7 +17,11 @@ const estadoInicial = [
 ];
 
 export const TodoApp = () => {
-  const [state, dispatch] = useReducer(todoReducer, estadoInicial);
+  const [todos, dispatch] = useReducer(todoReducer, estadoInicial);
+
+  const handleNewTodo = (todo) => {
+    console.log(todo);
+  };
 
   return (
     <>
@@ -26,12 +32,7 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <ul className="list-group">
-            <li className="list-group-item d-flex justify-content-between">
-              <span className="align-self-center">Item 1</span>
-              <button className="btn btn-danger">Borrar</button>
-            </li>
-          </ul>
+          <TodoList todos={todos} />
         </div>
 
         <div className="col-5">
@@ -39,17 +40,7 @@ export const TodoApp = () => {
 
           <hr />
 
-          <form action="">
-            <input
-              type="text"
-              placeholder="Nueva Tarea"
-              className="form-control"
-            />
-
-            <button type="submit" className="mt-3">
-              Agregar
-            </button>
-          </form>
+          <TodoAdd onNewTodo={(newTodo) => handleNewTodo(newTodo)} />
         </div>
       </div>
     </>
