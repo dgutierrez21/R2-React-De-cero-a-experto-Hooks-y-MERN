@@ -6,7 +6,7 @@ export const ShowIncrement = memo(({ increment }) => {
   return (
     <button
       onClick={() => {
-        increment();
+        increment(5);
       }}
     >
       Incrementar
