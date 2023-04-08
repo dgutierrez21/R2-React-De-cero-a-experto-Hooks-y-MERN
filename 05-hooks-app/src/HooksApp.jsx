@@ -10,12 +10,13 @@ import { Memorize } from "./06-memos/Memorize";
 import { Layout } from "./05-useLayoutEffect/Layout";
 import { Padre } from "./07-tarea-memo/Padre";
 
-import "./08-useReducer/intro-reducer"
+import "./08-useReducer/intro-reducer";
+import { TodoApp } from "./08-useReducer/TodoApp";
 
 export const HooksApp = () => {
   return (
     <>
-      {/* <Padre /> */}
+      <TodoApp />
     </>
   );
 };
