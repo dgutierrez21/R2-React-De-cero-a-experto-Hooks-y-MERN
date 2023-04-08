@@ -8,11 +8,12 @@ import { CallbackHooks } from "./06-memos/CallbackHooks";
 import { MemoHook } from "./06-memos/MemoHook";
 import { Memorize } from "./06-memos/Memorize";
 import { Layout } from "./05-useLayoutEffect/Layout";
+import { Padre } from "./07-tarea-memo/Padre";
 
 export const HooksApp = () => {
   return (
     <>
-      <CallbackHooks />
+      <Padre />
     </>
   );
 };
