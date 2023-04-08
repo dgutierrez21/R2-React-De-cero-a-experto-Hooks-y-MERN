@@ -1,23 +1,24 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import { TodoList } from "./components/TodoList";
 import { TodoAdd } from "./components/todoAdd";
 
 const estadoInicial = [
-  {
-    id: new Date().getTime(),
-    descripcion: "Sacar la basura",
-    hecho: false,
-  },
-  {
-    id: new Date().getTime() * 3,
-    descripcion: "Pasear al perro",
-    hecho: false,
-  },
+  // {
+  //   id: new Date().getTime(),
+  //   descripcion: "Sacar la basura",
+  //   hecho: false,
+  // },
 ];
 
+const init = () => JSON.parse(localStorage.getItem("todos")) || [];
+
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, estadoInicial);
+  const [todos, dispatch] = useReducer(todoReducer, estadoInicial, init);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const handleNewTodo = (todo) => {
     console.log(todo);
