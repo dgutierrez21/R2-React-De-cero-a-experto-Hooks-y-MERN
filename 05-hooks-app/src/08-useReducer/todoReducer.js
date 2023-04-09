@@ -8,7 +8,10 @@ export const todoReducer = (estadoInicial, accion) => {
       return estadoInicial.map(todo => {
         if(todo.id === accion.payload) {
             return {...todo, hecho: !todo.hecho}
+
         }
+
+        return todo;
       })
     default:
       return estadoInicial;
