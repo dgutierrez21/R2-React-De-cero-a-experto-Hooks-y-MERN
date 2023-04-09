@@ -15,12 +15,37 @@ import { TodoApp } from "./08-useReducer/TodoApp";
 import { Ejemplo2useReducer } from "./08-useReducer/ejemplo2/Ejemplo2useReducer";
 
 import { MainApp } from "./09-useContext/mainApp";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import { HomePage } from "./09-useContext/HomePage";
+import { AboutPage } from "./09-useContext/AboutPage";
+import { LoginPage } from "./09-useContext/LoginPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainApp />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+    ],
+  },
+  {
+    path: "/*",
+    element: <Navigate to={"/"} />,
   },
 ]);
 
