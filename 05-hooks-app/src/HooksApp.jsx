@@ -14,10 +14,20 @@ import "./08-useReducer/intro-reducer";
 import { TodoApp } from "./08-useReducer/TodoApp";
 import { Ejemplo2useReducer } from "./08-useReducer/ejemplo2/Ejemplo2useReducer";
 
+import { MainApp } from "./09-useContext/mainApp";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainApp />,
+  },
+]);
+
 export const HooksApp = () => {
   return (
     <>
-      <Ejemplo2useReducer />
+      <RouterProvider router={router} />
     </>
   );
 };
