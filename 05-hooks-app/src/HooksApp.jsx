@@ -12,11 +12,12 @@ import { Padre } from "./07-tarea-memo/Padre";
 
 import "./08-useReducer/intro-reducer";
 import { TodoApp } from "./08-useReducer/TodoApp";
+import { Ejemplo2useReducer } from "./08-useReducer/ejemplo2/Ejemplo2useReducer";
 
 export const HooksApp = () => {
   return (
     <>
-      <TodoApp />
+      <Ejemplo2useReducer />
     </>
   );
 };
