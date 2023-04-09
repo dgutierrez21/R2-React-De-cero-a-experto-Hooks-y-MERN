@@ -45,3 +45,11 @@ button:hover {
 .checkBtn:hover {
   background-color: rgb(220, 220, 220);
 }
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(186, 186, 186);
+}
