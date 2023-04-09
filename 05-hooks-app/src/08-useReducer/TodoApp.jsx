@@ -49,10 +49,15 @@ export const TodoApp = () => {
     dispatch(accion);
   };
 
+  const contadorTodos = (value) => todos.filter((todo) => todo.hecho === value);
+
   return (
     <>
       <h1>TodoApp</h1>
-      <h2>Completados: 10 | Pendientes: 5</h2>
+      <h2>
+        Completados: {contadorTodos(true).length} | Pendientes:{" "}
+        {contadorTodos(false).length}
+      </h2>
 
       <hr />
 
