@@ -1,62 +1,22 @@
-import { useEffect, useReducer } from "react";
-import { todoReducer } from "./todoReducer";
 import { TodoList } from "./components/TodoList";
 import { TodoAdd } from "./components/todoAdd";
-
-const estadoInicial = [
-  // {
-  //   id: new Date().getTime(),
-  //   descripcion: "Sacar la basura",
-  //   hecho: false,
-  // },
-];
-
-const init = () => JSON.parse(localStorage.getItem("todos")) || [];
+import { useTodos } from "../hooks";
 
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, estadoInicial, init);
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  const handleNewTodo = (todo) => {
-    console.log(todo);
-
-    const accion = {
-      type: "add Todo",
-      payload: todo,
-    };
-
-    dispatch(accion);
-  };
-
-  const handleDeleteTodo = (id) => {
-    const accion = {
-      type: "delete Todo",
-      payload: id,
-    };
-
-    dispatch(accion);
-  };
-
-  const handleToggleTodo = (id) => {
-    const accion = {
-      type: "hecho Todo",
-      payload: id,
-    };
-
-    dispatch(accion);
-  };
-
-  const contadorTodos = (value) => todos.filter((todo) => todo.hecho === value);
+  const {
+    todos,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleToggleTodo,
+    todosCompletados,
+    todosPendientes,
+  } = useTodos();
 
   return (
     <>
       <h1>TodoApp</h1>
       <h2>
-        Completados: {contadorTodos(true).length} | Pendientes:{" "}
-        {contadorTodos(false).length}
+        Completados: {todosCompletados} | Pendientes: {todosPendientes}
       </h2>
 
       <hr />
@@ -65,8 +25,8 @@ export const TodoApp = () => {
         <div className="col-7">
           <TodoList
             todos={todos}
-            onDeleteTodo={(id) => handleDeleteTodo(id)}
-            onToggleTodo={(id) => handleToggleTodo(id)}
+            onDeleteTodo={handleDeleteTodo}
+            onToggleTodo={handleToggleTodo}
           />
         </div>
 
@@ -75,7 +35,7 @@ export const TodoApp = () => {
 
           <hr />
 
-          <TodoAdd onNewTodo={(newTodo) => handleNewTodo(newTodo)} />
+          <TodoAdd onNewTodo={handleNewTodo} />
         </div>
       </div>
     </>
