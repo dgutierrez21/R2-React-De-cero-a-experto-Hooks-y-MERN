@@ -1,6 +1,5 @@
-import { TodoList } from "./components/TodoList";
-import { TodoAdd } from "./components/todoAdd";
 import { useTodos } from "../hooks";
+import { TodoAdd, TodoList } from "./components";
 
 export const TodoApp = () => {
   const {

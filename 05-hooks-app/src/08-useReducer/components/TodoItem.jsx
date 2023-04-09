@@ -15,14 +15,14 @@ export const TodoItem = ({
         {descripcion}
       </span>
       <div className="btnContainer d-flex">
-        <button className="btn btn-danger" onClick={() => onDeleteTodo(id)}>
-          Borrar
-        </button>
         <button
           className="checkBtn align-self-center"
           onClick={() => onToggleTodo(id)}
         >
           <p className="">{hecho && "✅"}</p>
+        </button>
+        <button className="btn btn-danger" onClick={() => onDeleteTodo(id)}>
+          Borrar
         </button>
       </div>
     </li>
