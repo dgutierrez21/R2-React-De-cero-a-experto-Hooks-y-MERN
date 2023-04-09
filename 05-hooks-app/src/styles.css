@@ -1,7 +1,7 @@
 html,
 body {
   background-color: rgb(30 41 59);
-  padding: 70px;
+  padding: 30px;
   font-family: Helvetica, Arial, sans-serif;
   color: white;
   font-size: 1.1rem;
@@ -52,4 +52,8 @@ a {
 
 a:hover {
   color: rgb(186, 186, 186);
+}
+
+.activeLink {
+  font-weight: bold;
 }
