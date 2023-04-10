@@ -1,9 +1,12 @@
+import { useEffect, useRef } from "react";
 import { useForm } from "../../hooks";
 
 export const TodoAdd = ({ onNewTodo }) => {
   const { descripcion, onInputChange, onResetForm } = useForm({
     descripcion: "",
   });
+
+  const descRef = useRef();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +24,10 @@ export const TodoAdd = ({ onNewTodo }) => {
     onResetForm();
   };
 
+  useEffect(() => {
+    descRef.current.focus();
+  }, []);
+
   return (
     <form action="" onSubmit={handleFormSubmit}>
       <input
@@ -30,6 +37,7 @@ export const TodoAdd = ({ onNewTodo }) => {
         name="descripcion"
         value={descripcion}
         onChange={onInputChange}
+        ref={descRef}
       />
 
       <button type="submit" className="mt-3">
