@@ -1,15 +1,10 @@
-import { useTodos } from "../hooks";
+import { useContext } from "react";
 import { TodoAdd, TodoList } from "./components";
+import { TodoContext } from "./context/TodoContext";
 
 export const TodoApp = () => {
-  const {
-    todos,
-    handleNewTodo,
-    handleDeleteTodo,
-    handleToggleTodo,
-    todosCompletados,
-    todosPendientes,
-  } = useTodos();
+  const { todos, handleNewTodo, todosCompletados, todosPendientes } =
+    useContext(TodoContext);
 
   return (
     <>
@@ -22,11 +17,7 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <TodoList
-            todos={todos}
-            onDeleteTodo={handleDeleteTodo}
-            onToggleTodo={handleToggleTodo}
-          />
+          <TodoList todos={todos} />
         </div>
 
         <div className="col-5">

@@ -23,6 +23,7 @@ import {
 import { HomePage } from "./09-useContext/HomePage";
 import { AboutPage } from "./09-useContext/AboutPage";
 import { LoginPage } from "./09-useContext/LoginPage";
+import { TodoProvider } from "./08-useReducer/context/TodoProvider";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,10 @@ const router = createBrowserRouter([
 export const HooksApp = () => {
   return (
     <>
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      <TodoProvider>
+        <TodoApp />
+      </TodoProvider>
     </>
   );
 };
