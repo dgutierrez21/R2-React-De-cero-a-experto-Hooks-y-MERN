@@ -3,10 +3,10 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { MarvelPage } from "../heroes/pages/MarvelPage";
-import { DCPage } from "../heroes/pages/DCPage";
-import { LoginPage } from "../auth/pages/LoginPage";
+
+import { LoginPage } from "../auth/pages";
 import { HeroesApp } from "../HeroesApp";
+import { DCPage, MarvelPage } from "../heroes/pages";
 
 const router = createBrowserRouter([
   {
