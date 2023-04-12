@@ -17,7 +17,9 @@ export const HeroCard = ({
     }
   };
 
-  const newCharactersFiltered = eliminateAlterEgoOfCharacters();
+  const newCharactersFiltered = eliminateAlterEgoOfCharacters() ?? "";
+
+  console.log(newCharactersFiltered);
 
   return (
     <div className="col">

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <DCPage />,
       },
       {
-        path: "hero",
+        path: "hero/:heroId",
         element: <HeroPage />,
       },
       {
