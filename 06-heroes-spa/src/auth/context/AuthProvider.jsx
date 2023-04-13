@@ -3,21 +3,29 @@ import { AuthContext } from "./AuthContext";
 import { AuthReducer } from "./AuthReducer";
 import { types } from "../types/types";
 
-const initiaiState = {
-  logged: false,
+const init = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  return {
+    logged: !!user,
+    user,
+  };
 };
 
 export const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AuthReducer, initiaiState);
+  const [state, dispatch] = useReducer(AuthReducer, {}, init);
 
   const onLogin = (name = "") => {
+    const user = {
+      id: 123,
+      name,
+    };
     const action = {
       type: types.login,
-      payload: {
-        id: 123,
-        name,
-      },
+      payload: user,
     };
+
+    localStorage.setItem("user", JSON.stringify(user));
 
     dispatch(action);
   };
