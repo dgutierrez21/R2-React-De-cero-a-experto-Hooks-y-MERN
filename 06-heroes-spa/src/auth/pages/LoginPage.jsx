@@ -1,12 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () =>
+  const { onLogin } = useContext(AuthContext);
+
+  const handleLogin = () => {
+    const nombre = prompt("Ingrese su nombre");
+
+    onLogin(nombre);
+
     navigate("/", {
       replace: true,
     });
+  };
 
   return (
     <div className="container mt-3">
