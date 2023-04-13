@@ -10,9 +10,11 @@ export const LoginPage = () => {
   const handleLogin = () => {
     const nombre = prompt("Ingrese su nombre");
 
+    const lastPath = localStorage.getItem("lastPath") || "/";
+
     onLogin(nombre);
 
-    navigate("/", {
+    navigate(lastPath, {
       replace: true,
     });
   };
