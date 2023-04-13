@@ -17,10 +17,19 @@ export const SearchPage = () => {
 
   const heroes = useMemo(() => getHeroByName(q), [q]);
 
+  const showSearch = q.length === 0;
+  const showError = q.length > 0 && heroes.length === 0;
+
+  const alertClasses = `alert ${
+    showSearch ? "alert-primary" : "alert-danger"
+  } ${!showError && !showSearch && "d-none"} animate__animated animate__fadeIn`;
+
+  const alertText = `${
+    showError ? `The hero "${q}" has not been found` : "Search a hero"
+  }`;
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-
-    if (searchText.trim().length < 2) return;
 
     navigate(`?q=${searchText}`);
   };
@@ -54,11 +63,7 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
 
-          <div className="alert alert-primary">Search a hero</div>
-
-          <div className="alert alert-danger">
-            No hero with <b>{q}</b>
-          </div>
+          <div className={alertClasses}>{alertText}</div>
 
           {heroes.map((hero) => (
             <div className="mt-3">
