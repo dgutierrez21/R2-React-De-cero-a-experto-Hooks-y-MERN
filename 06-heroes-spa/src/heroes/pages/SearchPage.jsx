@@ -66,8 +66,8 @@ export const SearchPage = () => {
           <div className={alertClasses}>{alertText}</div>
 
           {heroes.map((hero) => (
-            <div className="mt-3">
-              <HeroCard key={hero.id} {...hero} />
+            <div key={hero.id} className="mt-3">
+              <HeroCard {...hero} />
             </div>
           ))}
         </div>
