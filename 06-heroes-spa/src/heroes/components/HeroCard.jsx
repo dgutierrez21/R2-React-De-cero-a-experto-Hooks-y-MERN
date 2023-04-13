@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 export const HeroCard = ({
   id,
   superhero,
-  publisher,
   alter_ego,
   first_appearance,
   characters,
@@ -20,7 +19,7 @@ export const HeroCard = ({
   const newCharactersFiltered = eliminateAlterEgoOfCharacters() ?? "";
 
   return (
-    <div className="col">
+    <div className="col animate__animated animate__fadeInUp">
       <div className="card">
         <div className="row no-gutters">
           <div className="col-4">
