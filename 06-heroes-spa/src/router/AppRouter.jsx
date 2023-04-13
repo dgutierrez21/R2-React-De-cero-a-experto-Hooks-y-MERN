@@ -8,6 +8,7 @@ import { LoginPage } from "../auth/pages";
 import { DCPage, HeroPage, MarvelPage, SearchPage } from "../heroes/pages";
 import { HeroesRoutes } from "../heroes/routes/HeroesRoutes";
 import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
   },
   {
     path: "login",
-    element: <LoginPage />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
 ]);
 
