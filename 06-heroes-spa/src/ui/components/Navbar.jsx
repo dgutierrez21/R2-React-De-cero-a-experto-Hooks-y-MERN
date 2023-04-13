@@ -5,12 +5,15 @@ import { useContext } from "react";
 export const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
-  const handleLogout = () =>
+  const handleLogout = () => {
+    logout();
+
     navigate("login", {
       replace: true,
     });
+  };
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
